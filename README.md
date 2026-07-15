@@ -224,3 +224,113 @@ This experiment demonstrated how fine-tuning allows a pre-trained model to adapt
 - Hyperparameter Optimization
 - Deploy the trained model as a web application
 - Extend the model to classify multiple lung diseases
+# ECG Arrhythmia Classification using Long Short-Term Memory (LSTM)
+
+## Overview
+
+This project focuses on classifying ECG heartbeat signals into five different heartbeat categories using a Long Short-Term Memory (LSTM) network. The objective was to understand how recurrent neural networks process sequential data and why architectures with memory are better suited for time-series problems than traditional feedforward neural networks.
+
+Unlike previous projects involving tabular and image data, this project works with ECG signals represented as sequential voltage measurements sampled over time. The project also explores the challenges of highly imbalanced medical datasets and demonstrates why evaluation metrics such as confusion matrices, precision, recall, and F1-score are often more informative than overall accuracy.
+
+---
+
+## Dataset
+
+**Dataset:** MIT-BIH Arrhythmia Dataset
+
+The dataset consists of ECG heartbeat signals where each heartbeat is represented by **187 sequential voltage measurements**.
+
+### Heartbeat Classes
+
+- Normal (N)
+- Supraventricular Beat (S)
+- Ventricular Beat (V)
+- Fusion Beat (F)
+- Unknown Beat (Q)
+
+Each sample represents one heartbeat, while the final column contains the corresponding heartbeat class.
+
+---
+
+## Project Workflow
+
+- Loaded and explored the ECG dataset
+- Understood sequential representation of ECG signals
+- Split the dataset into training and testing sets
+- Reshaped the data for recurrent neural networks
+- Built an LSTM-based classification model
+- Trained and evaluated the model
+- Generated confusion matrices and classification reports
+- Investigated the impact of class imbalance
+- Experimented with automatic class weighting
+- Compared model performance using different evaluation metrics
+
+---
+
+## Model Architecture
+
+- Input Layer
+- LSTM Layer
+- Dropout Layer
+- Dense Hidden Layer (ReLU)
+- Output Layer (Softmax)
+
+---
+
+## Technologies Used
+
+- Python
+- TensorFlow / Keras
+- NumPy
+- Pandas
+- Matplotlib
+- Scikit-learn
+
+---
+
+## Results
+
+The LSTM successfully learned temporal patterns from ECG heartbeat signals and classified five heartbeat categories.
+
+During experimentation, two different training strategies were explored:
+
+### Experiment 1 — Standard Training
+
+- Trained without class weighting
+- Achieved high overall accuracy
+- Confusion matrix revealed strong bias toward the majority (Normal) class
+
+### Experiment 2 — Class Weighting
+
+- Applied automatic class weights to address dataset imbalance
+- Improved prediction of minority heartbeat classes
+- Demonstrated the trade-off between overall accuracy and balanced class performance
+- Highlighted the importance of evaluating medical models using precision, recall, F1-score, and confusion matrices instead of relying solely on accuracy
+
+---
+
+## Key Concepts Learned
+
+- Sequential Data Processing
+- Recurrent Neural Networks (RNN)
+- Long Short-Term Memory (LSTM)
+- Time-Series Classification
+- Sequence Reshaping
+- Softmax Classification
+- Multiclass Classification
+- Class Imbalance
+- Class Weighting
+- Confusion Matrix
+- Precision, Recall and F1-Score
+- Early Stopping
+- Model Evaluation
+
+---
+
+## Future Improvements
+
+- Compare LSTM with SimpleRNN and GRU architectures
+- Experiment with Bidirectional LSTMs
+- Apply data augmentation techniques for ECG signals
+- Perform hyperparameter optimization
+- Explore Transformer-based models for ECG classification
